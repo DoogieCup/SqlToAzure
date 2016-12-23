@@ -23,12 +23,12 @@ namespace LegacyDataImporter
             cfg.CreateMap<Team, Club>()
                 .ConvertUsing(team =>
                 {
-                    var clubId = Guid.NewGuid();
-
                     if (!clubIdMaps.ContainsKey(team.Id))
                     {
-                        clubIdMaps.Add(team.Id, clubId);
+                        clubIdMaps.Add(team.Id, Guid.NewGuid());
                     }
+
+                    var clubId = clubIdMaps[team.Id];
 
                     return new Club
                     {

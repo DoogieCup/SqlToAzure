@@ -1,10 +1,9 @@
 ﻿using System;
 using Microsoft.WindowsAzure.Storage.Table;
-using Newtonsoft.Json;
 
 namespace LegacyDataImporter.Models
 {
-    public partial class Player : TableEntity
+    public class Player : TableEntity
     {
         private Guid _id;
         private Guid _currentAflClub;
@@ -15,21 +14,14 @@ namespace LegacyDataImporter.Models
             set
             {
                 RowKey = value.ToString();
+                PartitionKey = value.ToString().Substring(0, 1);
                 _id = value;
             }
         }
 
         public string Name { get; set; }
 
-        public Guid CurrentAflClubId
-        {
-            get { return _currentAflClub; }
-            set
-            {
-                PartitionKey = value.ToString();
-                _currentAflClub = value;
-            }
-        }
+        public Guid CurrentAflClubId{get;set;}
 
         public bool Active { get; set; }
         public string FootywireName { get; set; }
