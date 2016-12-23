@@ -6,8 +6,7 @@ namespace LegacyDataImporter.Models
     public class Player : TableEntity
     {
         private Guid _id;
-        private Guid _currentAflClub;
-
+    
         public Guid Id
         {
             get { return _id; }
