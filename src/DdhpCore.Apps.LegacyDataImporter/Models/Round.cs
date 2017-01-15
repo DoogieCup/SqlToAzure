@@ -14,7 +14,7 @@ namespace LegacyDataImporter.Models
             get { return _year; }
             set
             {
-                PartitionKey = value.ToString();
+                PartitionKey = value.ToString("0000");
                 _year = value;
             }
         }
@@ -24,7 +24,7 @@ namespace LegacyDataImporter.Models
             get { return _roundNumber; }
             set
             {
-                RowKey = value.ToString();
+                RowKey = value.ToString("00");
                 _roundNumber = value;
             }
         }
