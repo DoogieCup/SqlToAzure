@@ -24,8 +24,8 @@ namespace LegacyDataImporter.Models
             get { return _home; }
             set
             {
-                SetRowKey();
                 _home = value;
+                SetRowKey();
             }
         }
 
@@ -34,8 +34,8 @@ namespace LegacyDataImporter.Models
             get { return _away; }
             set
             {
-                SetRowKey();
                 _away = value;
+                SetRowKey();
             }
         }
 
